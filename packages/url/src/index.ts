@@ -1,3 +1,6 @@
+
+
+
 import { Action, Atom, AtomMut, AtomState, Ctx, Fn, Rec, action, atom } from '@reatom/core'
 import { abortCauseContext } from '@reatom/effects'
 import { getRootCause, withInit } from '@reatom/hooks'
@@ -53,7 +56,7 @@ const createBrowserUrlAtomSettings = (shouldCatchLinkClick = true): AtomUrlSetti
     const click = (event: MouseEvent) =>
       ctx.get(() => {
         let link:
-          | undefined
+          | undefined 
           | (HTMLLinkElement & {
               origin: string
               download: string
