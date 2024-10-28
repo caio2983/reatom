@@ -12,9 +12,10 @@ describe('optimistic update', () => {
     We want to update the list immediately, but we want to rollback the update
     if the server returns an error.
 
-    Also, we use onConnect to fetch the list from the server every 5 seconds
-    and we don't want to call subscriptions extra times so we use isDeepEqual
-    in withDataAtom to prevent new reference stream if nothing really changed.
+    Also, we use `onConnect` to fetch the list from the server every 5 seconds
+    and we don't want to call subscriptions extra times so we use `isDeepEqual`
+    in `withDataAtom` to prevent new reference stream if nothing really changed.
+
   */
 
   //#region BACKEND IMITATION
@@ -29,11 +30,14 @@ describe('optimistic update', () => {
   }
   //#endregion
 
+  // this is short for test purposes, use ~5000 in real code
   const INTERVAL = 5
 
-  const getData = reatomAsync
-    .from(api.getData)
-    .pipe(withDataAtom([], (ctx, payload, state) => (isDeepEqual(payload, state) ? state : payload)))
+  const getData = reatomAsync.from(api.getData).pipe(
+    // add `dataAtom` and map the effect payload into it
+    // try to prevent new reference stream if nothing really changed
+    withDataAtom([], (ctx, payload, state) => (isDeepEqual(payload, state) ? state : payload)),
+  )
   const putData = reatomAsync.from(api.putData)
   putData.onCall((ctx, promise, params) => {
     const [id, value] = params
