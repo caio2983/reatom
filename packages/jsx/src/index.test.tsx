@@ -512,8 +512,8 @@ it('css property and class attribute', async () => {
   const cls = 'class'
   const css = 'color: red;'
 
-  const ref1 = <div css={css} className={cls}></div> // Mudança para className
-  const ref2 = <div className={cls} css={css}></div> // Mudança para className
+  const ref1 = <div css={css} className={cls}></div> 
+  const ref2 = <div className={cls} css={css}></div> 
 
   const component = (
     <div>
@@ -522,15 +522,15 @@ it('css property and class attribute', async () => {
     </div>
   )
 
-  const parent = document.createElement('div') // Criando um elemento div como contêiner
-  document.body.appendChild(parent) // Adicionando o elemento ao body
+  const parent = document.createElement('div') 
+  document.body.appendChild(parent) 
 
-  ReactDOM.render(component, parent) // Renderizando o componente no parent
+  ReactDOM.render(component, parent)
   expect(ref1).toBeInstanceOf(HTMLElement)
   expect(ref2).toBeInstanceOf(HTMLElement)
   await sleep()
 
-  expect(ref1.className).toBe(cls) // Correção na verificação da classe
+  expect(ref1.className).toBe(cls) 
   expect(ref1.dataset.reatom).toBeDefined()
 
   expect(ref2.className).toBe(cls)
