@@ -257,7 +257,6 @@ export function withSearchParamsPersist(
       ctx.spy(searchParamsAtom, (next, prev) => {
         const currentPath = ctx.spy(urlAtom).pathname;
 
-        // Atualiza o estado apenas se o caminho estiver no subpath permitido
         if (subpath && currentPath.startsWith(subpath() as string)) {
           if (key in next) {
             if (!prev || prev[key] !== next[key]) {
