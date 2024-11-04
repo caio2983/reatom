@@ -252,9 +252,7 @@ export function withSearchParamsPersist(
 
     theAtom.__reatom.computer = (ctx, state) => {
       ctx.spy(searchParamsAtom, (next, prev) => {
-        const currentPath = ctx.spy(urlAtom).pathname
-
-        if (subpath && currentPath.startsWith(subpath() as string)) {
+         
           if (key in next) {
             if (!prev || prev[key] !== next[key]) {
               state = parse(next[key])
@@ -264,7 +262,7 @@ export function withSearchParamsPersist(
               state = initState(ctx)
             }
           }
-        }
+
       })
 
       if (computer) {
