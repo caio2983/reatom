@@ -69,11 +69,11 @@ test('subpath SearchParamsAtom.lens', () => {
   assert.is(ctx.get(testAtom), 2)
   assert.is(ctx.get(urlAtom).href, 'http://example.com/results?test=2')
 
-  urlAtom.go(ctx, '/results')
+
   testAtom(ctx, 3)
   assert.is(ctx.get(urlAtom).href, 'http://example.com/results?test=3')
 
-  urlAtom.go(ctx, '/results')
+
   testAtom(ctx, 1)
   assert.is(ctx.get(testAtom), 1)
   assert.is(ctx.get(urlAtom).href, 'http://example.com/results')
