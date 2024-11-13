@@ -91,8 +91,8 @@ test('reactive change', () => {
   const ctx = createTestCtx()
 
   const boolAtom = atom(true)
-  const compAtom = match(boolAtom)
-    .is(true, () => 'a')
+  const compAtom = match(true)
+    .is(boolAtom, () => 'a')
     .default(() => 'b')
 
   const track = ctx.subscribeTrack(compAtom)
