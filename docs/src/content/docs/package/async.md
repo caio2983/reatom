@@ -24,7 +24,7 @@ You could utilize extra features by piping additional operators: [withDataAtom](
 
 ## reatomAsync
 
-`reatomAsync` accepts an effect function that returns a promise (it can simply be an `async` function) and queues it in the effects pipeline.The `ctx` object already includes a `controller` which is a native [AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController). The standout feature of this package—a true game changer for developer experience (DX) and code reliability—is its automatic handling of nested abort controllers. This means that for concurrent([abortable](#withabort)) processes, like an input search that triggers multiple sequential requests, starting a new search will automatically cancel the previous one and all associated effects.
+`reatomAsync` accepts an effect function that returns a promise (it can simply be an `async` function) and queues it in the effects queue. The `ctx` object already includes a `controller` which is a native [AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController). The standout feature of this package—a true game changer for developer experience (DX) and code reliability—is its automatic handling of nested abort controllers. This means that for concurrent ([abortable](#withabort)) processes, like an input search that triggers multiple sequential requests, starting a new search will automatically cancel the previous one and all associated effects.
 
 The core `reatomAsync` package is lightweight,at just [1.2KB](https://bundlejs.com/?q=%40reatom%2Fasync&treeshake=%5B%7B+reatomAsync+%7D%5D), while the entire package is only [2.6KB](https://bundlejs.com/?q=%40reatom%2Fasync)!
 
