@@ -28,7 +28,7 @@ You could utilize extra features by piping additional operators: [withDataAtom](
 
 The core `reatomAsync` package is lightweight, at just [1.2KB](https://bundlejs.com/?q=%40reatom%2Fasync&treeshake=%5B%7B+reatomAsync+%7D%5D), while the entire package is only [2.6KB](https://bundlejs.com/?q=%40reatom%2Fasync)!
 
-Since the package is designed for general asynchronous function management, it doesn’t include a built-in solution for data requests in specific environments, such as the web.You’re free to integrate any library you prefer, like the minimalist [redaxios](https://www.npmjs.com/package/redaxios) or the feature-rich [axios](https://www.npmjs.com/package/axios).
+Since the package is designed for general asynchronous function management, it doesn’t include a built-in solution for data requests in specific environments, such as the web. You’re free to integrate any library you prefer, like the minimalist [redaxios](https://www.npmjs.com/package/redaxios) or the feature-rich [axios](https://www.npmjs.com/package/axios).
 
 ### Default request helper
 
